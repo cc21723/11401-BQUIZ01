@@ -73,7 +73,17 @@
                                     	<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td><td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
                                     </tr>
                                 </tbody></table>
-								<?php include './backend/title.php'; ?>
+								<?php
+								$do=$_GET['do']??'title';
+								$file="./backend/".$do.".php";
+								if(file_exists($file)){
+									include $file; 
+								}else{
+									
+									include './backend/title.php'; 
+								}
+									?>
+								
                                                 </div>
                 <div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
                     	<script>
