@@ -48,15 +48,47 @@ function all(...$arg){
 }
 
 function find($id){
+    $sql="select * from $this->table ";
+    
+    if(is_array($id)){
+        $tmp=$this->arraytosql($id);
+        $sql=$sql." where ".join(" AND " , $tmp);
 
+    }else{
+        $sql .= " WHERE `id`='$id'";
+    }
+    //echo $sql;
+    return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
 function save($array){
+    if(isset($array['id'])){
+        //update
+        $sql="update $this->table set ";
+        $tmp=$this->arraytosql($array);
+        $sql.= join(" , ",$tmp) . "where `id`= '{$array['id']}'";
+    }else{
+        //insert
+        $cols=join("`,`",array_keys($array));
+        $values=join("','",$array);
+        $sql="insert into $this->table (`$cols`) values('$values')";
+    }
 
+    return $this->pdo->exec($sql);
 }
 
 function del($id){
+    $sql="delete  from $this->table ";
+    
+    if(is_array($id)){
+        $tmp=$this->arraytosql($id);
+        $sql=$sql." where ".join(" AND " , $tmp);
 
+    }else{
+        $sql .= " WHERE `id`='$id'";
+    }
+    //echo $sql;
+    return $this->pdo->exec($sql);
 }
 
 
