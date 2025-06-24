@@ -104,6 +104,7 @@ private function arraytosql($array){
 }
 
 
+$Title=new DB('title');
 
 
 
