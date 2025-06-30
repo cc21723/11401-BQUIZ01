@@ -12,7 +12,7 @@
                     <td width="10%"></td>
                 </tr>
                 <?php
-                 $rows=${ucfirst($do)}->all();
+                 $rows=${ucfirst($do)}->all(['main_id'=>0]);
                  foreach($rows as $row):
                 ?>
                 <tr>
