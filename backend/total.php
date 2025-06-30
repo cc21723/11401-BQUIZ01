@@ -7,11 +7,11 @@
                     <td width="50%">進站總人數</td>
                     <td width="50%">
                         <?php
-                            $total=$Total->find(1);
+                            $row=$Total->find(1);
 
                             //${ucfirst($do)}->find(1)['total']
                             ?>
-                        <input type="text" name="text" value="<?=$total['total'];?>" style="width:90%">
+                        <input type="text" name="total" value="<?=$row['total'];?>" style="width:90%">
                         <input type="hidden" name="id" value="<?=$row['id'];?>">
                     </td>
                 </tr>
