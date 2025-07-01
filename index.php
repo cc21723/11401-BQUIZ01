@@ -45,13 +45,13 @@
 								$subs=$Menu->all(['main_id'=>$main['id']]);
 								echo "<div class='mw'>";
 								foreach($subs as $sub){
-									echo "<div style='padding:5px 2px'>";
+
 									echo "<div class='mainmu2'>";
 									echo "<a href='{$sub['href']}'>";
 									echo $sub['text'];
 									echo "</a>";
 									echo "</div>";
-									echo "</div>";
+	
 								}
 								echo "</div>";
 							}
