@@ -34,6 +34,17 @@
                 <div id="menuput" class="dbor">
                     <!--主選單放此-->
                     <span class="t botli">主選單區</span>
+					<?php
+						$mains=$Menu->all(['main_id'=>0]);
+						foreach($mains as $main){
+							echo "<a href='{$main['href']}'>";
+							echo "<div class='mainmu'>";
+							echo $main['text'];
+							echo "</div>";
+							echo "</a>";
+						}
+
+					?>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :<?=$Total->find(1)['total'];?></span>
@@ -75,7 +86,7 @@
 					</div>
                     <script>
                     var nowpage = 0,
-                        num = <?=$Image->count(['sh'=>1]);?> ;
+                        num = <?=$Image->count(['sh'=>1]);?>;
 
                     function pp(x) {
                         var s, t;
