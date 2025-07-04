@@ -4,7 +4,6 @@ include_once "db.php";
 //$user=$Admin->find(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']]);
 $user=$Admin->count($_POST);
 
-
 //if(!empty($user)){
 if($user){
     $_SESSION['login']=1;
